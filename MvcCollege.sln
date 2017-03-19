@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4F1709C8-75CD-40F9-8ABC-84B027243C2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CFEBE8F0-C87A-47F7-B4EA-F4E3E87A2C95}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MvcCollege", "src\MvcCollege\MvcCollege.xproj", "{D955CACA-EF41-43BA-ABC6-3F08F46E8BA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D955CACA-EF41-43BA-ABC6-3F08F46E8BA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D955CACA-EF41-43BA-ABC6-3F08F46E8BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D955CACA-EF41-43BA-ABC6-3F08F46E8BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D955CACA-EF41-43BA-ABC6-3F08F46E8BA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D955CACA-EF41-43BA-ABC6-3F08F46E8BA7} = {4F1709C8-75CD-40F9-8ABC-84B027243C2B}
+	EndGlobalSection
+EndGlobal
