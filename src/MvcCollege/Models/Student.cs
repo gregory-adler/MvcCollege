@@ -12,6 +12,6 @@ namespace MvcCollege.Models
         public string FirstMidName { get; set; }
         public DateTime EnrollementDate { get; set; }
         
-        //public ICollection<Enrollment> Enrollments { get; set; }
+        public ICollection<Enrollment> Enrollments { get; set; }
     }
 }
