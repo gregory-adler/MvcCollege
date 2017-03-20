@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MvcCollege.Data;
 using Microsoft.EntityFrameworkCore;
+using MvcCollege.Models;
 
 namespace MvcCollege
 {
@@ -39,7 +40,7 @@ namespace MvcCollege
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddDbContext<SchoolContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddMvc();
         }
 
