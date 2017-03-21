@@ -10,15 +10,13 @@ namespace MvcCollege.Models
     public interface IStudentRepository
     {
         //Returns list of students
-        IList<Student> getAllStudents();
-
         Task<IList<Student>> getAllStudentsAsync();
 
-        //Returns student
-        // Student getStudent(int? id);
+        //Details view
+        Task<Student> getStudentDetails(int id);
 
         //Creates student
-        //void createStudent(Student student);
+        Task createStudent(Student student);
 
         //Edits student
         //void editStudent(int? id);

@@ -17,15 +17,24 @@ namespace MvcCollege.Models
         {
             db = database;
         }
-        public IList<Student> getAllStudents()
+        public async Task<IList<Student>> getAllStudentsAsync()
         {
-            return db.Students.ToList();
+            return await db.Students.ToListAsync();
 
         }
-        public async Task<IList<Student>> getAllStudents()
-        {
-            return db.Students.ToListAsync();
 
+        public async Task createStudent(Student student)
+        {
+            db.Add(student);
+            await db.SaveChangesAsync();
+        }
+        public async Task<Student> getStudentDetails(int id)
+        {
+            return await db.Students
+                 .Include(s => s.Enrollments)
+                     .ThenInclude(e => e.Course)
+                 .AsNoTracking()
+                 .SingleOrDefaultAsync(m => m.ID == id);
         }
     }
 }
