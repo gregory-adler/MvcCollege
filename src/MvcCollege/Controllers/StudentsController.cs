@@ -62,7 +62,8 @@ namespace MvcCollege.Controllers
                 return NotFound();
             }
 
-            var student = await _studentRepository.getStudentDetails(id);
+            int studentID = id ?? -1;
+            var student = await _studentRepository.getStudentDetails(studentID);
 
             if (student == null)
             {
@@ -71,5 +72,48 @@ namespace MvcCollege.Controllers
 
             return View(student);
         }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            int studentID = id ?? -1;
+            var student = await _studentRepository.getStudent(studentID);
+            if (student == null)
+            {
+                return NotFound();
+            }
+            return View(student);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int? id, [Bind("EnrollmentDate,FirstMidName,LastName")] Student student)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            int studentID = id ?? -1;
+            var studentToUpdate = await _studentRepository.getStudent(studentID);
+            if (studentToUpdate != null) { 
+                try
+                {
+                    await _studentRepository.updateStudent(studentID, student);
+                    return RedirectToAction("Index");
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again, and if the problem persists, " +
+                        "see your system administrator.");
+                }
+            }
+            return View(studentToUpdate);
+        }
+        }
     }
-}
