@@ -46,10 +46,8 @@ namespace MvcCollege.Models
         public async Task updateStudent(int id, Student student)
         {
             var toModify = db.Students.Single(s => s.ID == id);
-            db.Students.Update(toModify);
-            toModify.LastName = student.LastName;
-            toModify.FirstMidName = student.FirstMidName;
-            toModify.EnrollmentDate = student.EnrollmentDate;
+            db.Students.Remove(toModify);
+            await db.Students.AddAsync(student);
             await db.SaveChangesAsync();
         }
     }

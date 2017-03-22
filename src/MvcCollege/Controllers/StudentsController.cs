@@ -73,14 +73,10 @@ namespace MvcCollege.Controllers
             return View(student);
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            int studentID = id ?? -1;
+            int studentID = id;
             var student = await _studentRepository.getStudent(studentID);
             if (student == null)
             {
@@ -91,13 +87,9 @@ namespace MvcCollege.Controllers
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("EnrollmentDate,FirstMidName,LastName")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("EnrollmentDate,FirstMidName,LastName")] Student student)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            int studentID = id ?? -1;
+            int studentID = id;
             var studentToUpdate = await _studentRepository.getStudent(studentID);
             if (studentToUpdate != null) { 
                 try
