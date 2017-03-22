@@ -13,7 +13,7 @@ namespace MvcCollege.Models
         Task<IList<Student>> getAllStudentsAsync();
 
         //Details view
-        Task<Student> getStudentDetails(int id);
+        Task<Student> getStudentDetails(int? id);
 
         //Creates student
         Task createStudent(Student student);

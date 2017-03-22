@@ -28,7 +28,7 @@ namespace MvcCollege.Models
             db.Add(student);
             await db.SaveChangesAsync();
         }
-        public async Task<Student> getStudentDetails(int id)
+        public async Task<Student> getStudentDetails(int? id)
         {
             return await db.Students
                  .Include(s => s.Enrollments)
