@@ -45,9 +45,20 @@ namespace MvcCollege.Models
 
         public async Task updateStudent(int id, Student student)
         {
-            var toModify = db.Students.Single(s => s.ID == id);
+            var toModify = db.Students.SingleOrDefault(s => s.ID == id);
             db.Students.Remove(toModify);
             await db.Students.AddAsync(student);
+            await db.SaveChangesAsync();
+        }
+
+        public async Task deleteStudent(int id)
+        {
+            var toDelete = db.Students.SingleOrDefault(s => s.ID == id);
+            if (toDelete == null)
+            {
+                return;
+            }
+            db.Students.Remove(toDelete);
             await db.SaveChangesAsync();
         }
     }

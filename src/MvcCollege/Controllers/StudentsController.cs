@@ -107,5 +107,43 @@ namespace MvcCollege.Controllers
             }
             return View(studentToUpdate);
         }
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            int studentID = id;
+            var student = await _studentRepository.getStudent(studentID);
+            if (student == null)
+            {
+                return NotFound();
+            }
+            return View(student);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id, bool saveChangesErorr = false)
+        {
+            var student = await _studentRepository.getStudent(id);
+            {
+                if (student == null)
+                {
+                    RedirectToAction("Index");
+                }
+                try
+                {
+                    await _studentRepository.deleteStudent(id);
+                    return RedirectToAction("Index");
+                } 
+                catch
+                {
+                    ViewData["ErrorMessage"] =
+                    "Delete failed. Try again, and if the problem persists " +
+                    "see your system administrator.";
+                }
+                return View(student);
+               
+            }
+
         }
     }
+}

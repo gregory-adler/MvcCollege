@@ -24,6 +24,6 @@ namespace MvcCollege.Models
         Task updateStudent(int id, Student student);
 
         //Deletes student
-        //void deleteStudent(int? id, bool? saveChangesError = false);
+        Task deleteStudent(int id);
     }
 }
