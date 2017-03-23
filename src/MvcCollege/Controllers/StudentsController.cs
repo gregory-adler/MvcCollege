@@ -20,9 +20,13 @@ namespace MvcCollege.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _studentRepository.getAllStudentsAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["CurrentFilter"] = searchString;
+            var students = (await _studentRepository.getAllStudentsAsync(sortOrder, searchString));
+            return View(students);
         }
 
         public IActionResult Create()
@@ -107,6 +111,8 @@ namespace MvcCollege.Controllers
             }
             return View(studentToUpdate);
         }
+
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
 
@@ -121,7 +127,7 @@ namespace MvcCollege.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int id, bool saveChangesErorr = false)
+        public async Task<IActionResult> DeleteStudent(int id)
         {
             var student = await _studentRepository.getStudent(id);
             {

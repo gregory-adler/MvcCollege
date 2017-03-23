@@ -23,9 +23,32 @@ namespace MvcCollege.Models
             return student;
 
         }
-        public async Task<IList<Student>> getAllStudentsAsync()
+        public async Task<IList<Student>> getAllStudentsAsync(string sortOrder, string searchString)
         {
-            return await db.Students.ToListAsync();
+            var students = from s in db.Students
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.LastName.Contains(searchString)
+                                       || s.FirstMidName.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    students = students.OrderByDescending(s => s.LastName);
+                    break;
+                case "Date":
+                    students = students.OrderBy(s => s.EnrollmentDate);
+                    break;
+                case "date_desc":
+                    students = students.OrderByDescending(s => s.EnrollmentDate);
+                    break;
+                default:
+                    students = students.OrderBy(s => s.LastName);
+                    break;
+            }
+            return await students.AsNoTracking().ToListAsync();
 
         }
 
