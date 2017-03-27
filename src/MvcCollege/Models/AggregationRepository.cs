@@ -7,6 +7,7 @@ using MvcCollege.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MvcCollege.Models.SchoolViewModels;
 
 namespace MvcCollege.Models
 {
@@ -16,6 +17,20 @@ namespace MvcCollege.Models
         public AggregationRepository(SchoolContext database)
         {
             db = database;
+        }
+
+        public async Task<IList<EnrollmentDateGroup>> groupByEnrollmentDate()
+        {
+            IQueryable<EnrollmentDateGroup> data =
+            from student in db.Students
+            group student by student.EnrollmentDate into dateGroup
+            select new EnrollmentDateGroup()
+            {
+                EnrollmentDate = dateGroup.Key,
+                StudentCount = dateGroup.Count()
+            };
+
+            return await data.AsNoTracking().ToListAsync();
         }
     }
 }
