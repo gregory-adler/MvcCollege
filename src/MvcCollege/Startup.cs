@@ -41,6 +41,7 @@ namespace MvcCollege
             services.AddDbContext<SchoolContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IAggregationRepository, AggregationRepository>();
             services.AddMvc();
         }
 
