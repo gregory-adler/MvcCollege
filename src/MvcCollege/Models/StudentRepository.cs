@@ -23,10 +23,18 @@ namespace MvcCollege.Models
             return student;
 
         }
-        public async Task<IList<Student>> getAllStudentsAsync(string sortOrder, string searchString)
+        public async Task<IList<Student>> getAllStudentsAsync(string sortOrder, string searchString, int? page)
         {
             var students = from s in db.Students
                            select s;
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+            }
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -48,9 +56,10 @@ namespace MvcCollege.Models
                     students = students.OrderBy(s => s.LastName);
                     break;
             }
-            return await students.AsNoTracking().ToListAsync();
+            int pageSize = 3;
+            return await (PaginatedList<Student>.CreateAsync(students.AsNoTracking(), page ?? 1, pageSize));
 
-        }
+    }
 
         public async Task createStudent(Student student)
         {

@@ -12,7 +12,7 @@ namespace MvcCollege.Models
         // gets Student
         Task<Student> getStudent(int id);
         //Returns list of students
-        Task<IList<Student>> getAllStudentsAsync(string sortOrder, string searchString);
+        Task<IList<Student>> getAllStudentsAsync(string sortOrder, string searchString, int? page);
 
         //Details view
         Task<Student> getStudentDetails(int id);

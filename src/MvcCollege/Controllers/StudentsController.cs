@@ -20,14 +20,16 @@ namespace MvcCollege.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+
             ViewData["CurrentFilter"] = searchString;
-            var students = (await _studentRepository.getAllStudentsAsync(sortOrder, searchString));
+            var students = (await _studentRepository.getAllStudentsAsync(sortOrder, searchString, page));
             return View(students);
-        }
+    }
 
         public IActionResult Create()
         {

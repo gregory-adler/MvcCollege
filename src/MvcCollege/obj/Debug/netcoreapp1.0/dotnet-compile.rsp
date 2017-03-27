@@ -205,6 +205,7 @@
 --reference:C:\Users\Gregory\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Gregory\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
 --resource:"C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\obj\Debug\netcoreapp1.0\MvcCollegedotnet-compile.deps.json",MvcCollege.deps.json
+C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Paginated.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Program.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Startup.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Controllers\HomeController.cs
