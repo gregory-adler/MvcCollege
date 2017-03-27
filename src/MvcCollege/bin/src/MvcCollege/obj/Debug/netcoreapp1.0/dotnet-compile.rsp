@@ -1,5 +1,5 @@
---temp-output:C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\obj\Debug\netcoreapp1.0\
---out:C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\bin\Debug\netcoreapp1.0\MvcCollege.dll
+--temp-output:C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\bin\src\MvcCollege\obj\Debug\netcoreapp1.0\
+--out:C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\bin\src\MvcCollege\bin\Debug\netcoreapp1.0\MvcCollege.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -208,7 +208,7 @@
 --reference:C:\Users\Gregory\.nuget\packages\System.Threading.Timer\4.3.0\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Gregory\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Gregory\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\obj\Debug\netcoreapp1.0\MvcCollegedotnet-compile.deps.json",MvcCollege.deps.json
+--resource:"C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\bin\src\MvcCollege\obj\Debug\netcoreapp1.0\MvcCollegedotnet-compile.deps.json",MvcCollege.deps.json
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Paginated.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Program.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Startup.cs
