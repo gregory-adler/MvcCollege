@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MvcCollege.Models;
+using MvcCollege.Models.SchoolViewModels;
 
 namespace MvcCollege.Controllers
 {
@@ -20,11 +21,14 @@ namespace MvcCollege.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Updating.";
 
-            return View();
+            IList<EnrollmentDateGroup> enrollmentData = new List<EnrollmentDateGroup>();
+            enrollmentData = await _aggregationRepository.groupByEnrollmentDate();
+
+            return View(enrollmentData);
         }
 
         public IActionResult Contact()
