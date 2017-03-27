@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcCollege.Data;
 using MvcCollege.Models;
+using MvcCollege.Models.SchoolViewModels;
 
 namespace MvcCollege.Controllers
 {
