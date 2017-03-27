@@ -56,9 +56,8 @@ namespace MvcCollege.Models
                     students = students.OrderBy(s => s.LastName);
                     break;
             }
-            int pageSize = 3;
+            int pageSize = 50;
             return await (PaginatedList<Student>.CreateAsync(students.AsNoTracking(), page ?? 1, pageSize));
-
     }
 
         public async Task createStudent(Student student)
