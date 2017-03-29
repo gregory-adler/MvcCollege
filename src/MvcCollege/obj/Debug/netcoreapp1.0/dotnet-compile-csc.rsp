@@ -216,6 +216,8 @@
 "C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170327231532_firstmigraitonname.Designer.cs"
 "C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170327231636_InitialCreate.cs"
 "C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170327231636_InitialCreate.Designer.cs"
+"C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170329030434_MaxLengthOnNames.cs"
+"C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170329030434_MaxLengthOnNames.Designer.cs"
 "C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\SchoolContextModelSnapshot.cs"
 "C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\AggregationRepository.cs"
 "C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Course.cs"
