@@ -22,10 +22,7 @@ namespace MvcCollege.Migrations
 
                     b.Property<int>("Credits");
 
-                    b.Property<int>("DepartmentID");
-
-                    b.Property<string>("Title")
-                        .HasAnnotation("MaxLength", 50);
+                    b.Property<string>("Title");
 
                     b.HasKey("CourseID");
 
@@ -60,10 +57,10 @@ namespace MvcCollege.Migrations
                     b.Property<DateTime>("EnrollmentDate");
 
                     b.Property<string>("FirstMidName")
+                        .HasColumnName("FirstName")
                         .HasAnnotation("MaxLength", 50);
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasAnnotation("MaxLength", 50);
 
                     b.HasKey("ID");
