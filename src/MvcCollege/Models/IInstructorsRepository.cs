@@ -7,5 +7,6 @@ namespace MvcCollege.Models
 {
     public interface IInstructorsRepository
     {
+        Task<IList<Instructor>> getInstructors();
     }
 }
