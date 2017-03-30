@@ -8,8 +8,8 @@ using MvcCollege.Data;
 namespace MvcCollege.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20170329235702_test2")]
-    partial class test2
+    [Migration("20170330002738_testchanges")]
+    partial class testchanges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,6 +58,7 @@ namespace MvcCollege.Migrations
                     b.Property<DateTime>("EnrollmentDate");
 
                     b.Property<string>("FirstMidName")
+                        .HasColumnName("FirstName")
                         .HasAnnotation("MaxLength", 50);
 
                     b.Property<string>("LastName")

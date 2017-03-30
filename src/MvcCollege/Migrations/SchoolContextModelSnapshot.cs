@@ -57,6 +57,7 @@ namespace MvcCollege.Migrations
                     b.Property<DateTime>("EnrollmentDate");
 
                     b.Property<string>("FirstMidName")
+                        .HasColumnName("FirstName")
                         .HasAnnotation("MaxLength", 50);
 
                     b.Property<string>("LastName")
