@@ -238,9 +238,11 @@ C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\201703301
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\SchoolContextModelSnapshot.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\AggregationRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Course.cs
+C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\CoursesRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Department.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Enrollment.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\IAggregationRepository.cs
+C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\ICoursesRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Instructor.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\IStudentRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\OfficeAssignment.cs

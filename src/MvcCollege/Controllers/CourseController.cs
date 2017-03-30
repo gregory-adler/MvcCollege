@@ -12,11 +12,11 @@ namespace ContosoUniversity.Controllers
 {
     public class CoursesController : Controller
     {
-        private readonly SchoolContext _context;
+        private readonly ICoursesRepository _coursesRepository;
 
-        public CoursesController(SchoolContext context)
+        public CoursesController(ICoursesRepository coursesRepository)
         {
-            _context = context;
+            _coursesRepository = coursesRepository;
         }
 
     }
