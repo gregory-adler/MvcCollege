@@ -18,17 +18,14 @@ namespace ContosoUniversity.Controllers
         {
             _coursesRepository = coursesRepository;
         }
-
+        // GET: Courses
+        public async Task<IActionResult> Index()
+        {
+            var courses = _coursesRepository.getCourses();
+            return View(await courses);
+        }
     }
 }
-//        // GET: Courses
-//        public async Task<IActionResult> Index()
-//        {
-//            var courses = _context.Courses
-//                .Include(c => c.Department)
-//                .AsNoTracking();
-//            return View(await courses.ToListAsync());
-//        }
 
 //        // GET: Courses/Details/5
 //        public async Task<IActionResult> Details(int? id)
