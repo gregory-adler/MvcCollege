@@ -43,6 +43,7 @@ namespace MvcCollege
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<IAggregationRepository, AggregationRepository>();
             services.AddScoped<ICoursesRepository, CoursesRepository>();
+            services.AddScoped<IInstructorsRepository, InstructorsRepository>();
             services.AddMvc();
         }
 
