@@ -62,50 +62,35 @@ namespace ContosoUniversity.Controllers
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPost(int id, [Bind("CourseID,Credits,DepartmentID,Title")] Course course)
-        {
-            var courseToUpdate = await _coursesRepository.getCourse(id);
-
-            if (courseToUpdate == null)
-            {
-                return NotFound();
-            }
-
-            try
-            {
-                await _coursesRepository.updateCourse(id, course);
-            }
-            catch (DbUpdateException /* ex */)
-                {
-                    //Log the error (uncomment ex variable name and write a log.)
-                    ModelState.AddModelError("", "Unable to save changes. " +
-                        "Try again, and if the problem persists, " +
-                        "see your system administrator.");
-                return RedirectToAction("Index");
-            }
-
-            PopulateDepartmentsDropDownList(courseToUpdate.DepartmentID);
-
-            return View(courseToUpdate);
-        }
-
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> EditPost(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var course = await _context.Courses
-                .Include(c => c.Department)
-                .AsNoTracking()
-                .SingleOrDefaultAsync(m => m.CourseID == id);
-            if (course == null)
-            {
-                return NotFound();
-            }
+            var courseToUpdate = await _context.Courses
+                .SingleOrDefaultAsync(c => c.CourseID == id);
 
-            return View(course);
+            if (await TryUpdateModelAsync<Course>(courseToUpdate,
+                "",
+                c => c.Credits, c => c.DepartmentID, c => c.Title))
+            {
+                try
+                {
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again, and if the problem persists, " +
+                        "see your system administrator.");
+                }
+                return RedirectToAction("Index");
+            }
+            PopulateDepartmentsDropDownList(courseToUpdate.DepartmentID);
+            return View(courseToUpdate);
         }
 
         public async Task<IActionResult> Delete(int? id)
@@ -125,6 +110,17 @@ namespace ContosoUniversity.Controllers
             }
 
             return View(course);
+        }
+
+        // POST: Courses/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var course = await _context.Courses.SingleOrDefaultAsync(m => m.CourseID == id);
+            _context.Courses.Remove(course);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
         private void PopulateDepartmentsDropDownList(object selectedDepartment = null)
