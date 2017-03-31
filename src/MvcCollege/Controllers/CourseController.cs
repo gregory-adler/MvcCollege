@@ -62,7 +62,7 @@ namespace ContosoUniversity.Controllers
 
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditPost(int id, [Bind("EnrollmentDate,FirstMidName,LastName")] Course course)
+        public async Task<IActionResult> EditPost(int id, [Bind("CourseID,Credits,DepartmentID,Title")] Course course)
         {
             var courseToUpdate = await _coursesRepository.getCourse(id);
 
@@ -87,6 +87,44 @@ namespace ContosoUniversity.Controllers
             PopulateDepartmentsDropDownList(courseToUpdate.DepartmentID);
 
             return View(courseToUpdate);
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var course = await _context.Courses
+                .Include(c => c.Department)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.CourseID == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return View(course);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var course = await _context.Courses
+                .Include(c => c.Department)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.CourseID == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return View(course);
         }
 
         private void PopulateDepartmentsDropDownList(object selectedDepartment = null)

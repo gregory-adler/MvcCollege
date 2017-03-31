@@ -241,9 +241,11 @@ C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\AggregationRe
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Course.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\CoursesRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Department.cs
+C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\DepartmentsRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Enrollment.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\IAggregationRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\ICoursesRepository.cs
+C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\IDepartmentsRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\IInstructorsRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Instructor.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\InstructorsRepository.cs
