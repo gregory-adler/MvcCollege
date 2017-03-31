@@ -14,10 +14,12 @@ namespace MvcCollege.Controllers
     public class InstructorsController : Controller
     {
         private readonly IInstructorsRepository _instructorsRepository;
+        private readonly SchoolContext _context;
 
-        public InstructorsController(IInstructorsRepository instructorsRepository)
+        public InstructorsController(IInstructorsRepository instructorsRepository, SchoolContext context)
         {
             _instructorsRepository = instructorsRepository;
+            _context = context;
         }
         public async Task<IActionResult> Index(int? id, int? courseID)
         {
@@ -38,6 +40,24 @@ namespace MvcCollege.Controllers
                     x => x.CourseID == courseID).Single().Enrollments;
             }
             return View(viewModel);
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var instructor = await _context.Instructors
+                .Include(i => i.OfficeAssignment)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.ID == id);
+            if (instructor == null)
+            {
+                return NotFound();
+            }
+            return View(instructor);
         }
     }
 }
