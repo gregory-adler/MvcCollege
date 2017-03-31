@@ -27,5 +27,25 @@ namespace MvcCollege.Models
             courses = await coursesQuery.ToListAsync();
             return courses;
         }
+
+        public async Task addCourse(Course course)
+        {
+            db.Add(course);
+            await db.SaveChangesAsync();
+        }
+
+        public async Task<Course> getCourse(int id)
+        {
+            Course course = await db.Courses.AsNoTracking().SingleOrDefaultAsync(m => m.CourseID == id);
+            return course;
+        }
+
+        public async Task updateCourse (int id, Course course)
+        {
+            var toModify = db.Courses.SingleOrDefault(s => s.ID == id);
+            db.Courses.Remove(toModify);
+            await db.Courses.AddAsync(course);
+            await db.SaveChangesAsync();
+        }
     }
 }
