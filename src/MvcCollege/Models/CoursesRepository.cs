@@ -42,7 +42,7 @@ namespace MvcCollege.Models
 
         public async Task updateCourse (int id, Course course)
         {
-            var toModify = db.Courses.SingleOrDefault(s => s.ID == id);
+            var toModify = db.Courses.SingleOrDefault(c => c.CourseID == id);
             db.Courses.Remove(toModify);
             await db.Courses.AddAsync(course);
             await db.SaveChangesAsync();
