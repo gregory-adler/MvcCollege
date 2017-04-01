@@ -192,6 +192,24 @@ namespace MvcCollege.Controllers
             return View();
         }
 
+        // GET: Instructors/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var instructor = await _context.Instructors
+                .SingleOrDefaultAsync(m => m.ID == id);
+            if (instructor == null)
+            {
+                return NotFound();
+            }
+
+            return View(instructor);
+        }
+
         // POST: Instructors/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
