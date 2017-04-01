@@ -149,5 +149,70 @@ namespace MvcCollege.Controllers
                 }
             }
         }
+        // GET: Instructors/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var instructor = await _context.Instructors
+                .SingleOrDefaultAsync(m => m.ID == id);
+            if (instructor == null)
+            {
+                return NotFound();
+            }
+
+            return View(instructor);
+        }
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            Instructor instructor = await _context.Instructors
+                .Include(i => i.CourseAssignments)
+                .SingleAsync(i => i.ID == id);
+
+            var departments = await _context.Departments
+                .Where(d => d.InstructorID == id)
+                .ToListAsync();
+            departments.ForEach(d => d.InstructorID = null);
+
+            _context.Instructors.Remove(instructor);
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        public IActionResult Create()
+        {
+            var instructor = new Instructor();
+            instructor.CourseAssignments = new List<CourseAssignment>();
+            PopulateAssignedCourseData(instructor);
+            return View();
+        }
+
+        // POST: Instructors/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("FirstMidName,HireDate,LastName,OfficeAssignment")] Instructor instructor, string[] selectedCourses)
+        {
+            if (selectedCourses != null)
+            {
+                instructor.CourseAssignments = new List<CourseAssignment>();
+                foreach (var course in selectedCourses)
+                {
+                    var courseToAdd = new CourseAssignment { InstructorID = instructor.ID, CourseID = int.Parse(course) };
+                    instructor.CourseAssignments.Add(courseToAdd);
+                }
+            }
+            if (ModelState.IsValid)
+            {
+                _context.Add(instructor);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(instructor);
+        }
     }
 }
