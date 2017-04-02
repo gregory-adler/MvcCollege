@@ -213,6 +213,7 @@ C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Paginated.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Program.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Startup.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Controllers\CourseController.cs
+C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Controllers\DepartmentController.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Controllers\HomeController.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Controllers\InstructorsController.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Controllers\StudentsController.cs
@@ -236,6 +237,8 @@ C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\201703300
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170330002738_testchanges.Designer.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170330190122_complexDataModels.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170330190122_complexDataModels.Designer.cs
+C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170402205740_RowVersion.cs
+C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\20170402205740_RowVersion.Designer.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Migrations\SchoolContextModelSnapshot.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\AggregationRepository.cs
 C:\Users\Gregory\Documents\GitHub\MvcCollege\src\MvcCollege\Models\Course.cs

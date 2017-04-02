@@ -21,6 +21,9 @@ namespace MvcCollege.Models
         [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         public int? InstructorID { get; set; }
 
         public Instructor Administrator { get; set; }
